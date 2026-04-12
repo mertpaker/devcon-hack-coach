@@ -19,6 +19,7 @@ jobs:
       contents: write
       pull-requests: write
       issues: write
+      id-token: write
     steps:
       - name: Check user permission
         uses: actions-cool/check-user-permission@v2
@@ -35,4 +36,3 @@ jobs:
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          allowed_tools: "Bash,Read,Write,Edit,Glob,Grep"
