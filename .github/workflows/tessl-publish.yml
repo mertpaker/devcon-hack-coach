@@ -26,4 +26,4 @@ jobs:
         run: tessl skill lint
 
       - name: Publish tile
-        run: tessl tile publish
+        run: tessl tile publish --bump patch
