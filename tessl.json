@@ -3,6 +3,9 @@
   "dependencies": {
     "paker-it/devcon-hack-coach": {
       "version": "0.1.5"
+    },
+    "paker-it/aie26-skill-judge": {
+      "version": "0.1.7"
     }
   }
 }
