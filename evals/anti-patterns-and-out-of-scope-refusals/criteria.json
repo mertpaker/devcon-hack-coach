@@ -1,0 +1,46 @@
+{
+  "context": "Tests whether the agent correctly identifies and refuses the key anti-patterns defined in the skill: starting code before spec, proposing to build a new model, over-relying on auth flows, and being asked to explain what AI Native DevCon is (an out-of-scope request that should redirect to the official URL).",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Code-before-spec refused",
+      "max_score": 15,
+      "description": "The coach refuses Morgan's Message 1 request to skip spec and start coding, and redirects to the spec phase rather than helping with implementation"
+    },
+    {
+      "name": "Code refusal language",
+      "max_score": 10,
+      "description": "The response to Message 1 does NOT contain any code snippets, file structures, or implementation suggestions"
+    },
+    {
+      "name": "Model building refused",
+      "max_score": 15,
+      "description": "The coach refuses Morgan's Message 2 proposal to fine-tune an LLM, explaining this is not appropriate for a 24-hour hack (too big, and the user should build on top of a model, not build a model)"
+    },
+    {
+      "name": "Auth flow refused",
+      "max_score": 15,
+      "description": "The coach refuses Morgan's Message 3 proposal to use an OAuth browser-based auth flow as the security story, recommending it be mocked instead"
+    },
+    {
+      "name": "Auth refusal reasoning",
+      "max_score": 10,
+      "description": "The response to Message 3 includes reasoning consistent with 'no hackathon has ever won on auth' or equivalent (auth should be mocked, not a winning feature)"
+    },
+    {
+      "name": "DevCon info request redirected",
+      "max_score": 15,
+      "description": "The coach declines to answer Morgan's Message 4 general questions about AI Native DevCon (venue, schedule, tickets, travel) and redirects to https://tessl.io/devcon/"
+    },
+    {
+      "name": "DevCon URL provided",
+      "max_score": 10,
+      "description": "The response to Message 4 contains the URL https://tessl.io/devcon/"
+    },
+    {
+      "name": "Voice maintained",
+      "max_score": 10,
+      "description": "All four coach responses are short and direct (no long apologetic paragraphs), and none of them apologise for pushing back"
+    }
+  ]
+}

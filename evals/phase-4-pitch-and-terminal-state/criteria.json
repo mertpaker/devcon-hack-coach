@@ -1,0 +1,66 @@
+{
+  "context": "Tests whether the agent correctly runs Phase 4 of the coaching workflow — producing exactly three pitch sentences each under 20 words, generating all five standard judge Q&A pairs, delivering the exact terminal state phrase, and not offering further implementation help after coaching ends.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Phase announcement",
+      "max_score": 5,
+      "description": "The coach explicitly announces Phase 4 by name (e.g. 'Phase 4 — Pitch it' or equivalent) before starting"
+    },
+    {
+      "name": "Priya's draft rejected",
+      "max_score": 8,
+      "description": "The coach rejects or pushes back on Priya's verbose opening pitch draft rather than accepting it as-is"
+    },
+    {
+      "name": "Exactly three sentences",
+      "max_score": 10,
+      "description": "The final pitch in pitch.md contains exactly three sentences (wedge, move, moment) — not more"
+    },
+    {
+      "name": "Sentence 1 under 20 words",
+      "max_score": 8,
+      "description": "The wedge sentence (Sentence 1) in pitch.md is 20 words or fewer"
+    },
+    {
+      "name": "Sentence 2 under 20 words",
+      "max_score": 8,
+      "description": "The move sentence (Sentence 2) in pitch.md is 20 words or fewer"
+    },
+    {
+      "name": "Word counts shown",
+      "max_score": 6,
+      "description": "pitch.md shows the word count for each of the three sentences (demonstrating they were counted)"
+    },
+    {
+      "name": "Sentence 3 is 'Watch this'",
+      "max_score": 6,
+      "description": "The moment sentence (Sentence 3) is 'Watch this.' or a close equivalent pointing to the live demo"
+    },
+    {
+      "name": "Five standard Q&A present",
+      "max_score": 10,
+      "description": "pitch.md includes all five standard judge questions: scale, existing tool comparison, LLM hallucination, who pays, and moat"
+    },
+    {
+      "name": "Q&A answers one sentence each",
+      "max_score": 8,
+      "description": "Every judge Q&A answer in pitch.md is a single sentence (not multiple sentences or bullet points)"
+    },
+    {
+      "name": "Terminal state phrase exact",
+      "max_score": 12,
+      "description": "The session log contains the exact terminal phrase: 'You have a spec, a plan, and a pitch. Stop planning. Go build. You have 24 hours.' (may be quoted or paraphrased very closely)"
+    },
+    {
+      "name": "No implementation help offered",
+      "max_score": 10,
+      "description": "After the terminal state, the coach does NOT offer help with implementation, coding, or next steps beyond the coaching scope"
+    },
+    {
+      "name": "Dry-run checklist in pitch.md",
+      "max_score": 9,
+      "description": "pitch.md includes a dry-run checklist with all items checked off (sentences under 20 words, Q&A complete, etc.)"
+    }
+  ]
+}

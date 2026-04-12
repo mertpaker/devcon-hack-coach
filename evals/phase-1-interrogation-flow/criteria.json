@@ -1,0 +1,56 @@
+{
+  "context": "Tests whether the agent correctly conducts Phase 1 of the hackathon coaching workflow — asking the three required questions one at a time, handling a user who lists multiple itches, matching the itch to a track, and enforcing the exit gate before declaring Phase 1 complete.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Phase announcement",
+      "max_score": 8,
+      "description": "The coach explicitly announces entering Phase 1 (e.g. 'Phase 1 — Interrogate' or equivalent phrasing indicating the phase name) before or at the start of the first question"
+    },
+    {
+      "name": "Questions one at a time",
+      "max_score": 12,
+      "description": "The coach asks the stack question, the track question, and the itch question as separate turns — they are NOT all bundled into a single message"
+    },
+    {
+      "name": "Stack question asked",
+      "max_score": 8,
+      "description": "The coach asks about the user's stack (language, framework, infra) as the first question"
+    },
+    {
+      "name": "Track question asked",
+      "max_score": 8,
+      "description": "The coach asks Alex to pick one DevCon track (or describes the tracks so Alex can pick), as the second question"
+    },
+    {
+      "name": "Itch question asked",
+      "max_score": 8,
+      "description": "The coach asks about one thing Alex secretly wishes existed (or similar phrasing), as the third question"
+    },
+    {
+      "name": "Pushback on multiple itches",
+      "max_score": 15,
+      "description": "Since Alex lists three ideas upfront, the coach explicitly pushes back and asks Alex to pick one itch (e.g. 'Pick the one that makes you lean forward' or similar)"
+    },
+    {
+      "name": "Single itch selected",
+      "max_score": 10,
+      "description": "The session concludes Phase 1 with exactly one named itch/idea selected (not a combination of the original three)"
+    },
+    {
+      "name": "Track matched or clarified",
+      "max_score": 10,
+      "description": "The coach either confirms Alex's chosen track or (if unclear) names a track assignment with an explanation and gives Alex a chance to veto"
+    },
+    {
+      "name": "Exit gate verified",
+      "max_score": 12,
+      "description": "The session log explicitly identifies that Phase 1 is complete and lists all three outputs: stack line, single track, single named itch — before moving to Phase 2"
+    },
+    {
+      "name": "Voice and tone",
+      "max_score": 9,
+      "description": "The coach's messages are short and direct (no long paragraphs of padding), and do not include any apology for pushing back on Alex's multiple ideas"
+    }
+  ]
+}

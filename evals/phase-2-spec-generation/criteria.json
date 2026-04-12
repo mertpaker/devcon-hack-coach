@@ -1,0 +1,66 @@
+{
+  "context": "Tests whether the agent correctly runs Phase 2 of the coaching workflow — proposing exactly three hack angles with required elements, enforcing the spec template fields, capping features at three, requiring a stage-directions demo moment, and meeting the exit gate before moving on. Sam starts with five features and wants to skip to the timeline.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Phase announcement",
+      "max_score": 5,
+      "description": "The coach explicitly announces Phase 2 by name (e.g. 'Phase 2 — Spec it' or equivalent) before beginning Step A"
+    },
+    {
+      "name": "Skip-ahead refused",
+      "max_score": 8,
+      "description": "The coach does NOT jump straight to the timeline when Sam asks to — Phase 2 steps are carried out first"
+    },
+    {
+      "name": "Exactly three angles proposed",
+      "max_score": 10,
+      "description": "The coach proposes exactly three (not two, not four) hack angles in Step A"
+    },
+    {
+      "name": "Angles include one-line description",
+      "max_score": 7,
+      "description": "Each of the three proposed angles includes a one-line description of the concept"
+    },
+    {
+      "name": "Angles include demo moment as stage directions",
+      "max_score": 10,
+      "description": "Each of the three proposed angles includes a demo moment written as stage directions (Judge does X / system does Y / judge sees Z), not as an abstract concept"
+    },
+    {
+      "name": "Angles include feasibility note",
+      "max_score": 7,
+      "description": "Each of the three proposed angles includes an explanation of what makes it feasible within 24 hours"
+    },
+    {
+      "name": "Feature cap enforced",
+      "max_score": 10,
+      "description": "The final spec's 'What's in' section contains at most 3 items — Sam's original list of 5 features is cut down"
+    },
+    {
+      "name": "All spec fields filled",
+      "max_score": 10,
+      "description": "The produced spec.md contains all required fields: Goal, User, Demo moment, What's in, What's out, Success in 24h, Red flags — none are blank"
+    },
+    {
+      "name": "Concrete demo moment in spec",
+      "max_score": 12,
+      "description": "The Demo moment in spec.md is written as concrete stage directions (what the judge does, what the system does, what the judge sees) — NOT an abstract description"
+    },
+    {
+      "name": "What's out names temptations",
+      "max_score": 8,
+      "description": "The 'What's out' section in spec.md explicitly names specific features that were cut (e.g. the dashboard, Slack notifications, or VS Code extension from Sam's original list)"
+    },
+    {
+      "name": "Exit gate confirmed",
+      "max_score": 8,
+      "description": "The session log contains a Phase 2 Complete section confirming all fields are filled and the demo moment meets the stage-directions requirement"
+    },
+    {
+      "name": "No code started",
+      "max_score": 5,
+      "description": "The coach does NOT suggest writing any code or implementation steps during Phase 2"
+    }
+  ]
+}

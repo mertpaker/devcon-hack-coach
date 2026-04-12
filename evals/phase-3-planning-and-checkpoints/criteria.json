@@ -1,0 +1,61 @@
+{
+  "context": "Tests whether the agent correctly runs Phase 3 of the coaching workflow — using the exact four checkpoints at the exact specified hours, pushing back on vague 'pretty well' milestone language, demanding concrete named artefacts at each checkpoint, refusing scope creep, and meeting the exit gate.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "Phase announcement",
+      "max_score": 5,
+      "description": "The coach explicitly announces Phase 3 by name (e.g. 'Phase 3 — Plan it' or equivalent) before starting"
+    },
+    {
+      "name": "Four checkpoints present",
+      "max_score": 10,
+      "description": "The plan includes all four checkpoint names: Smoke test, Golden path, Second scenario, and Pitch dry-run"
+    },
+    {
+      "name": "Correct checkpoint hours",
+      "max_score": 12,
+      "description": "Each checkpoint is assigned the correct hour: Smoke test = T+2h, Golden path = T+8h, Second scenario = T+16h, Pitch dry-run = T+22h"
+    },
+    {
+      "name": "Pushback on vague milestone",
+      "max_score": 12,
+      "description": "The coach pushes back on Jordan's 'pretty well by hour 8' statement and demands a concrete named artefact (file, endpoint, or screen)"
+    },
+    {
+      "name": "Concrete artefacts at all checkpoints",
+      "max_score": 12,
+      "description": "The final plan.md lists a specific named artefact (not just a vague state) at each of the four checkpoints"
+    },
+    {
+      "name": "Scope creep refused",
+      "max_score": 12,
+      "description": "The coach refuses Jordan's suggestion to add a similarity heat-map visualization, labelling it as v2 or out of scope rather than incorporating it"
+    },
+    {
+      "name": "Scope-creep phrasing",
+      "max_score": 8,
+      "description": "The coach uses language consistent with 'That's v2. Write it down and move on.' when dismissing the scope creep (may be paraphrased)"
+    },
+    {
+      "name": "Checkpoint table format",
+      "max_score": 8,
+      "description": "The plan.md presents the four checkpoints in a table or structured list format showing checkpoint name, hour, and artefact"
+    },
+    {
+      "name": "Exit gate confirmed",
+      "max_score": 10,
+      "description": "The Phase 3 Complete section explicitly states that Jordan has committed to a named artefact at each of the four checkpoints"
+    },
+    {
+      "name": "No implementation code",
+      "max_score": 6,
+      "description": "The coach does NOT write or suggest any actual code implementation during Phase 3"
+    },
+    {
+      "name": "No skipping to Phase 4 early",
+      "max_score": 5,
+      "description": "The coach does NOT move to pitch/Phase 4 content until all four checkpoint artefacts are concretely defined"
+    }
+  ]
+}
