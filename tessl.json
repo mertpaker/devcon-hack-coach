@@ -2,7 +2,7 @@
   "name": "devcon-hack-coach",
   "dependencies": {
     "paker-it/devcon-hack-coach": {
-      "version": "0.1.4"
+      "version": "0.1.5"
     }
   }
 }
