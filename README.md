@@ -69,6 +69,12 @@ All references use **progressive disclosure** — they're loaded only when the p
 
 ## Install
 
+**From the [Tessl registry](https://tessl.io/registry/paker-it/devcon-hack-coach):**
+
+```bash
+tessl install paker-it/devcon-hack-coach
+```
+
 **Via the skills CLI:**
 
 ```bash
