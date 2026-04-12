@@ -1,0 +1,90 @@
+name: Release & Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-and-eval:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: tesslio/setup-tessl@v2
+        with:
+          token: ${{ secrets.TESSL_TOKEN }}
+
+      - name: Sync tile.json version to release tag
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          jq --arg v "$VERSION" '.version = $v' tile.json > tile.tmp && mv tile.tmp tile.json
+          echo "Publishing version $VERSION"
+          cat tile.json
+
+      - name: Lint
+        run: tessl skill lint
+
+      - name: Publish to Tessl registry
+        run: tessl tile publish
+
+      - name: Run evals
+        id: eval
+        run: |
+          OUTPUT=$(tessl eval run . 2>&1)
+          echo "$OUTPUT"
+          EVAL_ID=$(echo "$OUTPUT" | grep -oE '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' | head -1)
+          echo "eval_id=$EVAL_ID" >> "$GITHUB_OUTPUT"
+          echo "Eval ID: $EVAL_ID"
+
+      - name: Wait for eval completion
+        run: |
+          EVAL_ID="${{ steps.eval.outputs.eval_id }}"
+          echo "Waiting for eval $EVAL_ID to complete..."
+          for i in $(seq 1 40); do
+            sleep 30
+            STATUS=$(tessl eval view "$EVAL_ID" 2>&1 | grep "^Status:" | head -1)
+            echo "Poll $i: $STATUS"
+            if echo "$STATUS" | grep -qi "Completed"; then
+              echo "Eval completed!"
+              break
+            fi
+          done
+          tessl eval view "$EVAL_ID" 2>&1 | tee eval-output.txt
+
+      - name: Update release notes with eval results
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          EVAL_ID="${{ steps.eval.outputs.eval_id }}"
+
+          # Get current release body
+          gh release view "$GITHUB_REF_NAME" --json body -q '.body' > current-notes.md
+
+          # Extract eval summary
+          AVG_LINE=$(grep "With context avg" eval-output.txt | sed 's/^  //' || echo "Eval results pending")
+
+          # Build updated notes
+          {
+            cat current-notes.md
+            echo ""
+            echo "---"
+            echo ""
+            echo "## Tessl Eval Results"
+            echo ""
+            echo "$AVG_LINE"
+            echo ""
+            echo "<details>"
+            echo "<summary>Full eval output</summary>"
+            echo ""
+            echo '```'
+            cat eval-output.txt
+            echo '```'
+            echo ""
+            echo "</details>"
+            echo ""
+            echo "[View eval run on Tessl](https://tessl.io/eval-runs/${EVAL_ID})"
+          } > updated-notes.md
+
+          gh release edit "$GITHUB_REF_NAME" --notes-file updated-notes.md

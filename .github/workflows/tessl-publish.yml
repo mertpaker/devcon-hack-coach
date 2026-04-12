@@ -1,4 +1,4 @@
-name: Publish to Tessl
+name: Lint
 
 on:
   push:
@@ -8,22 +8,19 @@ on:
       - 'tile.json'
       - 'references/**'
       - 'evals/**'
-  workflow_dispatch:
 
 jobs:
-  publish:
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Tessl
-        uses: tesslio/setup-tessl@v2
+      - uses: tesslio/setup-tessl@v2
         with:
           token: ${{ secrets.TESSL_TOKEN }}
 
       - name: Lint
         run: tessl skill lint
 
-      - name: Publish tile
-        run: tessl tile publish --bump patch
+      - name: Review
+        run: tessl skill review
