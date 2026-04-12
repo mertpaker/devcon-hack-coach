@@ -4,6 +4,8 @@ A Claude skill that coaches you through scoping, shipping, and pitching a **24-h
 
 Spec-first. Track-aware. Demo-obsessed. Refuses to let you write code before a one-page spec exists.
 
+[![Tessl Registry](https://img.shields.io/badge/Tessl-paker--it%2Fdevcon--hack--coach-green)](https://tessl.io/registry/paker-it/devcon-hack-coach)
+
 ---
 
 ## What it does
