@@ -55,7 +55,11 @@ If they still name multiple: *"Pick the one that makes you lean forward."*
 
 Goal: turn the itch into a one-page spec before any code is written.
 
-**Step A — three angles.** Propose exactly **three** hack ideas mapping the itch to the track. Each must include a one-line description, a **demo moment** as stage directions, and what makes it feasible in 24 hours.
+**Step A — three angles.** Propose exactly **three** hack ideas mapping the itch to the track. For each angle, include all three of:
+
+1. **One-line description** — what the hack is, in one sentence.
+2. **Demo moment as stage directions** — write it as: *"Judge does X → system does Y → judge sees Z."*
+3. **Feasibility note** — one sentence explaining why this is achievable in 24 hours.
 
 Then: *"Pick one, combine two, or tell me they're all wrong and I'll go again."*
 
