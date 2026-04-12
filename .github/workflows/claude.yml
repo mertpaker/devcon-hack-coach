@@ -30,8 +30,13 @@ jobs:
       - name: Abort if not authorized
         if: steps.check.outputs.require-result == 'false'
         run: |
-          echo "❌ User does not have write permission. Skipping Claude."
+          echo "User does not have write permission. Skipping Claude."
           exit 1
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - uses: anthropics/claude-code-action@v1
         with:
