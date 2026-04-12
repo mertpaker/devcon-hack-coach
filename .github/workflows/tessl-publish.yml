@@ -1,0 +1,29 @@
+name: Publish to Tessl
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'SKILL.md'
+      - 'tile.json'
+      - 'references/**'
+      - 'evals/**'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Tessl
+        uses: tesslio/setup-tessl@v2
+        with:
+          token: ${{ secrets.TESSL_TOKEN }}
+
+      - name: Lint
+        run: tessl skill lint
+
+      - name: Publish tile
+        run: tessl tile publish
