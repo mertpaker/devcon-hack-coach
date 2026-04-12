@@ -8,6 +8,20 @@ Spec-first. Track-aware. Demo-obsessed. Refuses to let you write code before a o
 
 ---
 
+## Why this skill wins
+
+Judges evaluate across five dimensions. Here's how devcon-hack-coach stacks up in each:
+
+| Dimension | Why first place |
+|-----------|----------------|
+| **Content** | Four gated phases (Interrogate → Spec → Plan → Pitch) cover the full hackathon lifecycle end-to-end. Every phase has an exit gate with concrete deliverables — a locked spec, named artefacts at four checkpoints, a 3-sentence pitch under 20 words each, and five rehearsed judge Q&A answers. No other skill takes an engineer from a vague itch all the way to a stage-ready pitch in one session. |
+| **Style** | The voice is opinionated and concise — short sentences, no filler, no apologies. Anti-patterns are named and refused on contact ("That's v2", "No hackathon has ever won on auth", "Mock it"). Reference files use progressive disclosure so the skill loads only what the current phase needs. The result reads like a real coach, not a chatbot. |
+| **Efficiency** | The entire workflow fits in ~130 lines of SKILL.md. Reference files are loaded only when their phase starts — no token bloat. The 4-phase structure is sequential with hard gates, so the model never backtracks or wanders. One skill file, five reference files, zero external dependencies. |
+| **Innovation** | Spec-first coaching for hackathons is an unexplored niche — most skills help you code; this one refuses to let you code until you have a spec, a plan, and a pitch. It embodies Tessl's thesis (software from specs, not prompts) as a live workflow, not just a philosophy. The anti-pattern system proactively catches common hackathon mistakes (scope creep, auth rabbit holes, model training in 24h). |
+| **Vibes** | The coach has personality. It pushes back, cuts scope, and ends with *"Stop planning. Go build. You have 24 hours."* It feels like having a senior mentor in the room who won't let you waste the first 12 hours on the wrong thing. Worked examples (CacheScope) make the quality bar concrete and aspirational. |
+
+---
+
 ## What it does
 
 The coach walks you through **4 phases**, each with a hard gate you can't skip:
