@@ -20,6 +20,19 @@ jobs:
       pull-requests: write
       issues: write
     steps:
+      - name: Check user permission
+        uses: actions-cool/check-user-permission@v2
+        id: check
+        with:
+          require: "write"
+
+      - name: Abort if not authorized
+        if: steps.check.outputs.require-result == 'false'
+        run: |
+          echo "❌ User does not have write permission. Skipping Claude."
+          exit 1
+
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          allowed_tools: "Bash,Read,Write,Edit,Glob,Grep"
