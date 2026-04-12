@@ -1,6 +1,6 @@
 {
   "name": "paker-it/devcon-hack-coach",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "summary": "Coaches you through scoping, shipping, and pitching a 24-hour hackathon project at AI Native DevCon (Tessl, London, 1–2 June 2026). Spec-first, track-aware, demo-obsessed. Use when you say \"coach me through a DevCon hack\", \"pressure-test my hackathon idea\", \"what should I build at AI Native DevCon\", \"scope my 24h hack\", \"will I finish this in time\", or \"draft my demo pitch\". Refuses to let you write code before a one-page spec exists.",
   "skills": {
